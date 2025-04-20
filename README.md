@@ -23,16 +23,18 @@ This project is a Raspberry Pi–based autonomous robot built using the **RockyB
 - Remote access via `connect.raspberrypi.com`
 
 ## Project Structure
-Autonomous_RockyBorg/
-├── main.py              # Main control script
-├── vision.py            # OpenCV lane tracking
-├── motors.py            # Motor control functions
-├── gui_data_receiver.py # Pulls motor data
-├── gui_monitor.py       # Live GUI dashboard (optional)
-├── start_robot.sh       # Run entrypoint for Pi
-├── test_drive.py        # Manual motor + servo testing
-├── .gitignore
-├── README.md
+<pre> 
+  Autonomous_RockyBorg/ 
+  ├── main.py                  # Main control script 
+  ├── vision.py                # OpenCV lane tracking 
+  ├── motors.py                # Motor control functions 
+  ├── gui_data_receiver.py     # Pulls motor data 
+  ├── gui_monitor.py           # Live GUI dashboard (optional) 
+  ├── start_robot.sh           # Run entrypoint for Pi 
+  ├── test_drive.py            # Manual motor + servo testing 
+  ├── .gitignore 
+  └── README.md 
+</pre>
 
 ## Acknowledgements
 PiBorg for RockyBorg library (https://github.com/piborg/RockyBorg)

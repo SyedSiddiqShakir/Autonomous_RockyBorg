@@ -20,9 +20,9 @@ def init_camera():
 
 def start_camera():
     global picam2
-    if picam2 is None:
+    if picam2 is not None:
         picam2.start()
-    sleep(2)
+        sleep(2)
 
 
 def stop_camera():
@@ -33,7 +33,7 @@ def stop_camera():
 
 def get_frame():
     global picam2
-    if picam2 is None:
+    if picam2 is not None:
         frame = picam2.capture_array()
         return cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
     return None

@@ -1,10 +1,7 @@
-# Autonomous_RockyBorg
-# Branch - CLAUDE
 
-A line-following robot implementation using Raspberry Pi, PiCamera, and servo steering control. The robot can follow black lines, detect cross junctions, and stop when red objects are detected.
+# Autonomous_RockyBorg
 
 ## Features
-
 - **PID-controlled servo steering** for precise line following
 - **Red object detection** with automatic stop functionality
 - **Cross junction detection** with straight-ahead navigation

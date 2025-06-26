@@ -1,36 +1,36 @@
-# logs and temporary files
+#logs and temporary files
 *.log
 *.tmp
 *.swp
 
-# for IDEs
+#for IDEs
 .vscode/
 .idea/
 
-# jupyter Notebooks checkpoints
+#jupyter Notebooks checkpoints
 .ipynb_checkpoints/
 
-# raspberry Pi camera cache or artifacts (if any)
+#raspberry Pi camera cache or artifacts (we will see if we haveany)
 *.h264
 *.jpg
 *.png
 
-# system files
+#system files
 .DS_Store
 Thumbs.db
 
-# compiled C files
+#compiled C files
 *.so
 *.o
 
-# virtualenvs or environment folders
+#virtualenvs or environment folders
 env/
 venv/
 
-# compiled dependencies or camera test files
+#compiled dependencies or camera test files
 *.deb
 *.bak
 
-# backup files
+#backup files
 *.old
 *.orig

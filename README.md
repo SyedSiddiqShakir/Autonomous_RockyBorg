@@ -1,9 +1,13 @@
-# Autonomous Line Following RockyBorg
 
-This project is a Raspberry Pi–based autonomous robot built using the **RockyBorg motor controller**, equipped with:
-- Front **servo steering**
-- Rear **DC motors** x2
-- **Pi Camera** for OpenCV + PID lane tracking
+# Autonomous_RockyBorg
+
+## Features
+- **PID-controlled servo steering** for precise line following
+- **Red object detection** with automatic stop functionality
+- **Cross junction detection** with straight-ahead navigation
+- **CLAHE image enhancement** for better line visibility
+- **Adaptive thresholding** for robust line detection
+- **Real-time debug visualization** with multiple camera views
 
 ## Hardware Used
 
@@ -23,20 +27,23 @@ This project is a Raspberry Pi–based autonomous robot built using the **RockyB
 - Remote access via `connect.raspberrypi.com`
 
 ## Project Structure
-<pre> 
-  Autonomous_RockyBorg/ 
-  ├── main.py                  # Main control script 
-  ├── vision.py                # OpenCV lane tracking 
-  ├── motors.py                # Motor control functions 
-  ├── gui_data_receiver.py     # Pulls motor data 
-  ├── gui_monitor.py           # Live GUI dashboard (optional) 
-  ├── start_robot.sh           # Run entrypoint for Pi 
-  ├── test_drive.py            # Manual motor + servo testing 
-  ├── .gitignore 
-  └── README.md 
-</pre>
+
+```
+servo-pid-red-stop/
+├── README.md
+├── main.py                 # Main control loop and robot coordination
+├── config.py              # Configuration parameters and constants
+├── servo_controller.py     # Servo PWM control and PID steering logic
+├── vision_processor.py     # Camera handling and computer vision processing
+└── motor_controller.py     # RockyBorg motor control interface
+```
 
 ## Acknowledgements
 PiBorg for RockyBorg library (https://github.com/piborg/RockyBorg)
 OpenCV tutorials: TechWithTim
 Raspberry Pi community
+VisionRace Masters (https://github.com/CRM-UAM/VisionRace/tree/master)
+Vision race drive test (https://github.com/CRM-UAM/VisionRace/tree/drive_test)
+Robot Positioning (x-IMU) (https://github.com/xioTechnologies/Gait-Tracking-With-x-IMU/tree/master)
+Line Following Robot OpenCV (https://www.youtube.com/watch?v=ZC4VUt1I5FI)
+Line Tracking (https://github.com/fustyles/Arduino/blob/master/ESP32-CAM_Car/ESP32-CAM_CAR_TrackColorline_Tracking.js/ESP32-CAM_CAR_TrackColorline_Tracking.js.ino)

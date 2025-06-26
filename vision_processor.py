@@ -120,10 +120,10 @@ class VisionProcessor:
         mask2 = cv2.inRange(hsv, lower_red2, upper_red2)
         red_mask = cv2.bitwise_or(mask1, mask2)
         
-        #apply morphological operations to clean up the mask
-        kernel = np.ones(MORPHOLOGY_KERNEL_SIZE, np.uint8)
-        red_mask = cv2.erode(red_mask, kernel, iterations=MORPHOLOGY_ITERATIONS)
-        red_mask = cv2.dilate(red_mask, kernel, iterations=MORPHOLOGY_ITERATIONS)
+        #apply morphological operations to clean up the mask, lets just see where this goes
+        #kernel = np.ones(MORPHOLOGY_KERNEL_SIZE, np.uint8)
+        #red_mask = cv2.erode(red_mask, kernel, iterations=MORPHOLOGY_ITERATIONS)
+        #red_mask = cv2.dilate(red_mask, kernel, iterations=MORPHOLOGY_ITERATIONS)
         
         #find red contours
         red_contours, _ = cv2.findContours(red_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)

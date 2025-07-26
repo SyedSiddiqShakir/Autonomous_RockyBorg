@@ -3,7 +3,6 @@
 A black line-following robot implementation using Raspberry Pi, PiCamera2, with servo steering control. The robot can follow black lines, detect cross junctions.
 
 ## Features
-
 - **PID-controlled servo steering** for precise line following
 - **Pixel based Cross junction detection** with hardcoded navigation
 - **CLAHE image enhancement** for better line visibility

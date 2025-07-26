@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-"""Main control loop for line-following robot with junction detection."""
 
 import cv2
 import time
@@ -10,16 +9,14 @@ from config import MOTOR_CONFIG, JUNCTION_CONFIG, STEERING_CONFIG
 
 
 class LineFollowingRobot:
-    """Main robot controller coordinating all subsystems."""
     
     def __init__(self):
-        """Initialize all robot subsystems."""
-        print("Initializing robot systems...")
+        print("Initializing robot systems")
         self.motor_controller = MotorController()
         self.servo_controller = ServoController(self.motor_controller.RB)
         self.vision_processor = VisionProcessor()
         
-        # Junction state management
+        # Junction state start cleaner
         self.junction_state = {
             'blind_frames': 0,
             'frozen_angle': 0.0,

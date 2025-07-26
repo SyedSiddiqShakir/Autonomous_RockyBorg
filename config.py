@@ -3,12 +3,12 @@
 
 # PID constants for servo control
 PID_PARAMS = {
-    'Kp': 0.4,      # Proportional gain
-    'Ki': 0.02,     # Integral gain
-    'Kd': 0.3       # Derivative gain
+    'Kp': 0.4,      # previous 0.5
+    'Ki': 0.02,     # previous 0.0
+    'Kd': 0.3       # previous 0.35
 }
 
-# Motor control parameters
+# motor control parameters
 MOTOR_CONFIG = {
     'BASE_SPEED': 0.15,
     'MOTOR_INVERT': -1,
@@ -18,7 +18,7 @@ MOTOR_CONFIG = {
     'SEARCH_SPEED_FACTOR': 0.5
 }
 
-# Camera configuration
+# camera configuration
 CAMERA_CONFIG = {
     'resolution': (800, 400),
     'controls': {
@@ -31,7 +31,7 @@ CAMERA_CONFIG = {
     'startup_delay': 2
 }
 
-# Region of Interest (ROI) parameters
+# ROI parameters
 ROI_CONFIG = {
     'main_roi_width': 0.8,
     'main_roi_height': 0.6,
@@ -42,26 +42,26 @@ ROI_CONFIG = {
     'scan_height': 0.15
 }
 
-# Image processing parameters
+# Image processing 
 IMAGE_PROCESSING = {
     'clahe_clip_limit': 3.0,
     'clahe_grid_size': (8, 8),
     'gaussian_blur_size': (11, 11),
-    'binary_threshold': 180,
+    'binary_threshold': 180,         #190 previous but 180 more robust in indoor lighting
     'min_contour_area': 100,
     'scan_min_contour_area': 50
 }
 
-# Junction detection parameters
+# pixel fill parameters for junction
 JUNCTION_CONFIG = {
     'plus_junction_threshold': 0.30,  # ROI fill percentage
-    'blind_frames': 30,
-    'frozen_angle_frames': 10,  # Frames to maintain angle
+    'blind_frames': 30,               # always divided into 2 (half for frozen angle and half for blind straight)
+    'frozen_angle_frames': 10,  
     'white_surround_margin': 10,
     'white_surround_threshold': 0.1
 }
 
-# Waypoint and trajectory parameters
+# waypoint and trajectory parameters
 WAYPOINT_CONFIG = {
     'max_history': 8,
     'trajectory_tolerance': 0.3,
@@ -85,7 +85,6 @@ TURN_CONFIG = {
     'angle_history_size': 5
 }
 
-# Steering parameters
 STEERING_CONFIG = {
     'smoothing_factor': 0.8,
     'turn_speed_threshold': 0.4

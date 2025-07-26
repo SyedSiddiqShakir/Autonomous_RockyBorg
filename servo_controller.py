@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-"""Servo controller module with PID steering logic."""
 
 import numpy as np
 from config import PID_PARAMS, TURN_CONFIG, STEERING_CONFIG

@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-"""Vision processing module for line detection and tracking."""
 
 import cv2
 import numpy as np
@@ -10,10 +9,9 @@ from config import (CAMERA_CONFIG, ROI_CONFIG, IMAGE_PROCESSING,
 
 
 class VisionProcessor:
-    """Handles camera operations and vision processing."""
     
     def __init__(self):
-        """Initialize camera and vision parameters."""
+        #start camera
         self.picam2 = Picamera2()
         self._setup_camera()
         
@@ -22,7 +20,7 @@ class VisionProcessor:
         self.previous_line_position = None
         
     def _setup_camera(self):
-        """Configure and start camera."""
+        #camera config
         config = self.picam2.create_preview_configuration(
             main={"size": CAMERA_CONFIG['resolution']},
             controls=CAMERA_CONFIG['controls']
@@ -32,7 +30,7 @@ class VisionProcessor:
         time.sleep(CAMERA_CONFIG['startup_delay'])
     
     def capture_frame(self):
-        """Capture and convert frame to BGR."""
+        #conversion to RGB or BGR
         frame = self.picam2.capture_array()
         return cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
     
@@ -60,7 +58,7 @@ class VisionProcessor:
         return extreme_narrow_frame
     
     def _enhance_image(self, image):
-        """Apply CLAHE enhancement to image."""
+        """All about CLAHE"""
         lab = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
         l, a, b = cv2.split(lab)
         clahe = cv2.createCLAHE(

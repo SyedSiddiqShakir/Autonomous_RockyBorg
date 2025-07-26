@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-"""Motor controller module for RockyBorg robot."""
 
 import sys
 sys.path.insert(0, '/home/admin/project/rockyborg/')

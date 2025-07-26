@@ -1,71 +1,92 @@
-#!/usr/bin/env python3
-#configuration file for the line-following robot
-#contains parameters used across modules
+#!/usr/bin/env python
+"""Configuration parameters for the line-following robot."""
 
-#GPIO pin configuration
-SERVO_PIN = 18  # GPIO18, physical pin 12
+# PID constants for servo control
+PID_PARAMS = {
+    'Kp': 0.4,      # Proportional gain
+    'Ki': 0.02,     # Integral gain
+    'Kd': 0.3       # Derivative gain
+}
 
-#motor control parameters
-BASE_SPEED = 0.4
-MOTOR_INVERT = -1  # if inversion is needed for a motor rather than changing wires physically @Ravi will still use wires tho, idk why
+# Motor control parameters
+MOTOR_CONFIG = {
+    'BASE_SPEED': 0.15,
+    'MOTOR_INVERT': -1,
+    'TURN_SPEED': 0.18,
+    'MIN_SPEED': 0.12,
+    'MAX_SPEED': 0.18,
+    'SEARCH_SPEED_FACTOR': 0.5
+}
 
-#PID values, keep tweaking
-PID_KP = 45.0
-PID_KI = 0.0
-PID_KD = 15.0
-
-#camera config
+# Camera configuration
 CAMERA_CONFIG = {
-    "main": {"size": (2400, 1800)},
-    "controls": {
+    'resolution': (800, 400),
+    'controls': {
         "AwbEnable": True,
         "AeEnable": True,
         "ExposureTime": 30000,
         "AnalogueGain": 4.0,
         "FrameRate": 30
-    }
+    },
+    'startup_delay': 2
 }
 
-#roi parameters
-ROI_WIDTH_RATIO = 0.6
-ROI_HEIGHT_RATIO = 0.4
-ROI_Y_OFFSET = 0.3
+# Region of Interest (ROI) parameters
+ROI_CONFIG = {
+    'main_roi_width': 0.8,
+    'main_roi_height': 0.6,
+    'main_roi_y_offset': 0.4,
+    'side_crop': 0.05,
+    'final_crop': 0.3,
+    'scan_factors': [0.3, 0.45, 0.6],  # Multiple scan distances
+    'scan_height': 0.15
+}
 
-#CLAHE things
-CLAHE_CLIP_LIMIT = 3.0
-CLAHE_TILE_GRID_SIZE = (8, 8)
+# Image processing parameters
+IMAGE_PROCESSING = {
+    'clahe_clip_limit': 3.0,
+    'clahe_grid_size': (8, 8),
+    'gaussian_blur_size': (11, 11),
+    'binary_threshold': 180,
+    'min_contour_area': 100,
+    'scan_min_contour_area': 50
+}
 
-#cropping carameters
-SIDE_CROP_RATIO = 0.25
-VERTICAL_CROP_RATIO = 0.3
-FINAL_SIDE_CROP_RATIO = 0.25
+# Junction detection parameters
+JUNCTION_CONFIG = {
+    'plus_junction_threshold': 0.30,  # ROI fill percentage
+    'blind_frames': 30,
+    'frozen_angle_frames': 10,  # Frames to maintain angle
+    'white_surround_margin': 10,
+    'white_surround_threshold': 0.1
+}
 
-#threshold parameters
-GAUSSIAN_BLUR_KERNEL = (7, 7)
-ADAPTIVE_THRESH_BLOCK_SIZE = 21
-ADAPTIVE_THRESH_C = 5
+# Waypoint and trajectory parameters
+WAYPOINT_CONFIG = {
+    'max_history': 8,
+    'trajectory_tolerance': 0.3,
+    'confidence_threshold': 0.3,
+    'line_memory_weight': 0.7,
+    'trajectory_weight_high_conf': 0.7,
+    'trajectory_weight_low_conf': 0.3
+}
 
-#contour detection parameters
-MIN_CONTOUR_AREA = 100
-MIN_RED_CONTOUR_AREA = 500
-CROSS_JUNCTION_MIN_CONTOURS = 3
+# Turn detection and boost parameters
+TURN_CONFIG = {
+    'turn_angle_threshold': 0.15,
+    'curve_threshold': 0.3,
+    'center_offset_threshold': 0.4,
+    'sharp_turn_threshold': 0.5,
+    'boost_factor_base': 1.5,
+    'boost_factor_scale': 0.8,
+    'min_turn_boost': 1.3,
+    'straight_line_factor': 0.8,
+    'sharp_turn_boost': 1.4,
+    'angle_history_size': 5
+}
 
-#red object detection HSV ranges
-RED_HSV_LOWER1 = [0, 120, 70]
-RED_HSV_UPPER1 = [10, 255, 255]
-RED_HSV_LOWER2 = [160, 120, 70]
-RED_HSV_UPPER2 = [180, 255, 255]
-
-#morphological operations, keeping them for now, will decide later
-MORPHOLOGY_KERNEL_SIZE = (5, 5)
-MORPHOLOGY_ITERATIONS = 1
-
-#servo
-SERVO_FREQUENCY = 50  # 50Hz PWM frequency DON'T CHANGE!
-SERVO_CENTER_ANGLE = 90
-SERVO_MIN_ANGLE = 0
-SERVO_MAX_ANGLE = 180
-SERVO_MOVE_DELAY = 0.02
-
-#visual overlay
-CENTER_LINE_MARGIN = 20
+# Steering parameters
+STEERING_CONFIG = {
+    'smoothing_factor': 0.8,
+    'turn_speed_threshold': 0.4
+}
